@@ -1,4 +1,4 @@
-package nl.svdm.saturationdeliveriesbackend.enums;
+package nl.svdm.saturationdeliveriesbackend.models.enums;
 
 public enum ProductLabel {
     VEGAN,
