@@ -1,9 +1,9 @@
 package nl.svdm.saturationdeliveriesbackend.enums;
 
-public enum ProductType {
+public enum ProductLabel {
     VEGAN,
     VEGETARIAN,
-    NONE,
-    GLUTENFREE,
-    LACTOSEFREE
+    GlUTENFREE,
+    BIO,
+    GLUTENFREE
 }
