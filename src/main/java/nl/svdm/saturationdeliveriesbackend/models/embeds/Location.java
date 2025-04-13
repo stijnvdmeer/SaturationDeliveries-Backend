@@ -3,7 +3,7 @@ package nl.svdm.saturationdeliveriesbackend.models.embeds;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class OrderLocation {
+public class Location {
     private String country;
     private String province;
     private String city;

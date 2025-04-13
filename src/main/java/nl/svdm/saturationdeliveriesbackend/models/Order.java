@@ -1,7 +1,7 @@
 package nl.svdm.saturationdeliveriesbackend.models;
 
 import jakarta.persistence.*;
-import nl.svdm.saturationdeliveriesbackend.models.embeds.OrderLocation;
+import nl.svdm.saturationdeliveriesbackend.models.embeds.Location;
 import nl.svdm.saturationdeliveriesbackend.models.enums.OrderStatus;
 
 import java.util.Date;
@@ -27,6 +27,6 @@ public class Order {
     private OrderStatus status;
 
     @Embedded
-    private OrderLocation location;
+    private Location location;
 
 }
