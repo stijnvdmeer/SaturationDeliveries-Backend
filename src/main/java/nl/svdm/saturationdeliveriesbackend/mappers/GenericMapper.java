@@ -1,5 +1,8 @@
 package nl.svdm.saturationdeliveriesbackend.mappers;
 
+import jakarta.annotation.PostConstruct;
+import nl.svdm.saturationdeliveriesbackend.dtos.embeddtos.NutritionOutputDto;
+import nl.svdm.saturationdeliveriesbackend.models.embeds.ProductNutrition;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,6 +18,11 @@ public class GenericMapper {
     @Autowired
     public GenericMapper(ModelMapper mapper) {
         this.mapper = mapper;
+    }
+
+    @PostConstruct
+    public void init() {
+        mapper.createTypeMap(ProductNutrition.class, NutritionOutputDto.class);
     }
 
     public <D, T> D singleToDto(T entity, Class<D> dto) {
