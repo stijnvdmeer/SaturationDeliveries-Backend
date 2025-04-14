@@ -1,10 +1,9 @@
-package nl.svdm.saturationdeliveriesbackend;
+package nl.svdm.saturationdeliveriesbackend.controllers;
 
 import nl.svdm.saturationdeliveriesbackend.dtos.productdtos.ProductAdminOutputDto;
 import nl.svdm.saturationdeliveriesbackend.dtos.productdtos.ProductDetailOutputDto;
 import nl.svdm.saturationdeliveriesbackend.dtos.productdtos.ProductListOutputDto;
 import nl.svdm.saturationdeliveriesbackend.dtos.requestdtos.SearchInputDto;
-import nl.svdm.saturationdeliveriesbackend.dtos.requestdtos.StringInputDto;
 import nl.svdm.saturationdeliveriesbackend.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
