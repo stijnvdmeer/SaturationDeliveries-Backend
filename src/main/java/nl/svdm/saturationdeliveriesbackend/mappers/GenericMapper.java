@@ -1,7 +1,11 @@
 package nl.svdm.saturationdeliveriesbackend.mappers;
 
 import jakarta.annotation.PostConstruct;
+import nl.svdm.saturationdeliveriesbackend.dtos.categorydtos.CategoryOutputDto;
 import nl.svdm.saturationdeliveriesbackend.dtos.embeddtos.NutritionOutputDto;
+import nl.svdm.saturationdeliveriesbackend.dtos.subcategorydtos.SubCategoryOutputDto;
+import nl.svdm.saturationdeliveriesbackend.models.Category;
+import nl.svdm.saturationdeliveriesbackend.models.SubCategory;
 import nl.svdm.saturationdeliveriesbackend.models.embeds.ProductNutrition;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,8 @@ public class GenericMapper {
     @PostConstruct
     public void init() {
         mapper.createTypeMap(ProductNutrition.class, NutritionOutputDto.class);
+        mapper.createTypeMap(Category.class, CategoryOutputDto.class);
+        mapper.createTypeMap(SubCategory.class, SubCategoryOutputDto.class);
     }
 
     public <D, T> D singleToDto(T entity, Class<D> dto) {
