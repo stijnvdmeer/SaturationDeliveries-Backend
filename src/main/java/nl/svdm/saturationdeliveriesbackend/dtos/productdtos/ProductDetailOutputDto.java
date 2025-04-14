@@ -1,4 +1,4 @@
-package nl.svdm.saturationdeliveriesbackend.dtos;
+package nl.svdm.saturationdeliveriesbackend.dtos.productdtos;
 
 import java.util.List;
 
