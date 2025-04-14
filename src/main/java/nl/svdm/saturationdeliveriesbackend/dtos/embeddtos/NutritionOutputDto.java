@@ -1,6 +1,6 @@
-package nl.svdm.saturationdeliveriesbackend.dtos.productdtos;
+package nl.svdm.saturationdeliveriesbackend.dtos.embeddtos;
 
-public class ProductNutritionDto {
+public class NutritionOutputDto {
     public Double calories;
     public Double fats;
     public Double carbohydrates;

@@ -1,6 +1,7 @@
 package nl.svdm.saturationdeliveriesbackend.dtos.productdtos;
 
 import nl.svdm.saturationdeliveriesbackend.dtos.categorydtos.CategoryOutputDto;
+import nl.svdm.saturationdeliveriesbackend.dtos.embeddtos.NutritionOutputDto;
 import nl.svdm.saturationdeliveriesbackend.dtos.subcategorydtos.SubCategoryOutputDto;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class ProductAdminOutputDto {
     public List<String> labels;
     public List<String> ingredients;
     public List<String> warnings;
-    public ProductNutritionDto nutrition;
+    public NutritionOutputDto nutrition;
     public CategoryOutputDto category;
     public SubCategoryOutputDto subCategory;
 

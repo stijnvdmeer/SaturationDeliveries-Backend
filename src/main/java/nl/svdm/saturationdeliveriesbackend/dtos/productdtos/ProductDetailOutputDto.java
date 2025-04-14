@@ -1,5 +1,7 @@
 package nl.svdm.saturationdeliveriesbackend.dtos.productdtos;
 
+import nl.svdm.saturationdeliveriesbackend.dtos.embeddtos.NutritionOutputDto;
+
 import java.util.List;
 
 public class ProductDetailOutputDto {
@@ -8,6 +10,6 @@ public class ProductDetailOutputDto {
     public Integer stock;
     public List<String> labels;
     public List<String> ingredients;
-    public ProductNutritionDto nutrition;
+    public NutritionOutputDto nutrition;
     public List<String> warnings;
 }
