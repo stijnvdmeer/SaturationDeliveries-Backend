@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    List<Product> findByCategory_Name(String category);
-    List<Product> findProductBySubCategory(SubCategory subcategory);
-    List<Product> findProductByCategoryAndSubCategory(Category category, SubCategory subcategory);
+    List<Product> findByCategory_NameIgnoreCase(String category);
+    List<Product> findBySubCategory_NameIgnoreCase(String subcategory);
+    List<Product> findByCategory_NameAndSubCategory_NameIgnoreCase(String category, String subcategory);
     List<Product> findByNameContainingIgnoreCase(String name);
 }
