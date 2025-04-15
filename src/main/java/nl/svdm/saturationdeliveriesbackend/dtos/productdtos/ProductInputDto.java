@@ -41,4 +41,12 @@ public class ProductInputDto {
     @NotNull(message = "you must pick a subcategory")
     @Digits(integer = 20, fraction = 0, message = "This is not a valid Subcategory")
     public Long subcategoryId;
+
+    public @Valid NutritionInputDto getNutrition() {
+        return nutrition;
+    }
+
+    public void setNutrition(@Valid NutritionInputDto nutrition) {
+        this.nutrition = nutrition;
+    }
 }
