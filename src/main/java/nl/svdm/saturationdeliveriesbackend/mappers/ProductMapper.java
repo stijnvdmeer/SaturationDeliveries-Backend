@@ -7,11 +7,13 @@ import nl.svdm.saturationdeliveriesbackend.models.SubCategory;
 import nl.svdm.saturationdeliveriesbackend.models.enums.ProductLabel;
 import nl.svdm.saturationdeliveriesbackend.repositories.CategoryRepository;
 import nl.svdm.saturationdeliveriesbackend.repositories.SubCategoryRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Component
 public class ProductMapper {
     private final CategoryRepository categoryRepository;
     private final SubCategoryRepository subCategoryRepository;
