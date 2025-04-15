@@ -3,8 +3,10 @@ package nl.svdm.saturationdeliveriesbackend.mappers;
 import jakarta.annotation.PostConstruct;
 import nl.svdm.saturationdeliveriesbackend.dtos.categorydtos.CategoryOutputDto;
 import nl.svdm.saturationdeliveriesbackend.dtos.embeddtos.NutritionOutputDto;
+import nl.svdm.saturationdeliveriesbackend.dtos.productdtos.ProductInputDto;
 import nl.svdm.saturationdeliveriesbackend.dtos.subcategorydtos.SubCategoryOutputDto;
 import nl.svdm.saturationdeliveriesbackend.models.Category;
+import nl.svdm.saturationdeliveriesbackend.models.Product;
 import nl.svdm.saturationdeliveriesbackend.models.SubCategory;
 import nl.svdm.saturationdeliveriesbackend.models.embeds.ProductNutrition;
 import org.modelmapper.ModelMapper;
@@ -26,9 +28,15 @@ public class GenericMapper {
 
     @PostConstruct
     public void init() {
+        this.mapper.getConfiguration()
+                .setFieldMatchingEnabled(true)
+                .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE);
+
         mapper.createTypeMap(ProductNutrition.class, NutritionOutputDto.class);
         mapper.createTypeMap(Category.class, CategoryOutputDto.class);
         mapper.createTypeMap(SubCategory.class, SubCategoryOutputDto.class);
+        this.mapper.createTypeMap(ProductInputDto.class, Product.class)
+                .addMappings(m -> m.map(ProductInputDto::getNutrition, Product::setNutrition));
     }
 
     public <D, T> D singleToDto(T entity, Class<D> dto) {
