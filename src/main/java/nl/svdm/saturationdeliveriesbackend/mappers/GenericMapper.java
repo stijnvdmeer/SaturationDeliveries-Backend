@@ -28,14 +28,11 @@ public class GenericMapper {
 
     @PostConstruct
     public void init() {
-        this.mapper.getConfiguration()
-                .setFieldMatchingEnabled(true)
-                .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE);
 
         mapper.createTypeMap(ProductNutrition.class, NutritionOutputDto.class);
         mapper.createTypeMap(Category.class, CategoryOutputDto.class);
         mapper.createTypeMap(SubCategory.class, SubCategoryOutputDto.class);
-        this.mapper.createTypeMap(ProductInputDto.class, Product.class)
+        mapper.createTypeMap(ProductInputDto.class, Product.class)
                 .addMappings(m -> m.map(ProductInputDto::getNutrition, Product::setNutrition));
     }
 
