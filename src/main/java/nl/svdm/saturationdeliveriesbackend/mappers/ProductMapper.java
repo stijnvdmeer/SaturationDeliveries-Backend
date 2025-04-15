@@ -37,7 +37,11 @@ public class ProductMapper {
         product.setSubCategory(subCategory);
 
         product.setIngredients(new HashSet<>(dto.ingredients));
-        product.setWarnings(new HashSet<>(dto.warnings));
+
+        if(dto.warnings != null) {
+            product.setWarnings(new HashSet<>(dto.warnings));
+        }
+
 
         if(dto.labels != null) {
             Set<ProductLabel> LabelEnums = dto.labels.stream()
