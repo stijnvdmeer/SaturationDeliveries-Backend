@@ -1,0 +1,7 @@
+package nl.svdm.saturationdeliveriesbackend.repositories;
+
+import nl.svdm.saturationdeliveriesbackend.models.SubCategory;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SubCategoryRepository extends JpaRepository<SubCategory, Long> {
+}
