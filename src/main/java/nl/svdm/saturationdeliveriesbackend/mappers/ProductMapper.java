@@ -4,6 +4,7 @@ import nl.svdm.saturationdeliveriesbackend.dtos.productdtos.ProductInputDto;
 import nl.svdm.saturationdeliveriesbackend.models.Category;
 import nl.svdm.saturationdeliveriesbackend.models.Product;
 import nl.svdm.saturationdeliveriesbackend.models.SubCategory;
+import nl.svdm.saturationdeliveriesbackend.models.embeds.ProductNutrition;
 import nl.svdm.saturationdeliveriesbackend.models.enums.ProductLabel;
 import nl.svdm.saturationdeliveriesbackend.repositories.CategoryRepository;
 import nl.svdm.saturationdeliveriesbackend.repositories.SubCategoryRepository;
@@ -34,7 +35,7 @@ public class ProductMapper {
                 .orElseThrow();
         product.setCategory(category);
 
-        SubCategory subCategory = subCategoryRepository.findById(dto.subcategoryId)
+        SubCategory subCategory = subCategoryRepository.findById(dto.subCategoryId)
                 .orElseThrow();
         product.setSubCategory(subCategory);
 
@@ -51,6 +52,15 @@ public class ProductMapper {
                     .collect(Collectors.toSet());
             product.setLabels(LabelEnums);
         }
+
+        ProductNutrition nutrition = new ProductNutrition();
+        nutrition.setCalories(dto.nutrition.calories);
+        nutrition.setFats(dto.nutrition.fats);
+        nutrition.setCarbohydrates(dto.nutrition.carbohydrates);
+        nutrition.setSugars(dto.nutrition.sugars);
+        nutrition.setProteins(dto.nutrition.proteins);
+        nutrition.setSalts(dto.nutrition.salts);
+        product.setNutrition(nutrition);
 
         return product;
     }
