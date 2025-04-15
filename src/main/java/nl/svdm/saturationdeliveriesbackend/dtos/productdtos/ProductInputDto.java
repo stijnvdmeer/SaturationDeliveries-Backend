@@ -40,7 +40,7 @@ public class ProductInputDto {
 
     @NotNull(message = "you must pick a subcategory")
     @Digits(integer = 20, fraction = 0, message = "This is not a valid Subcategory")
-    public Long subcategoryId;
+    public Long subCategoryId;
 
     public @Valid NutritionInputDto getNutrition() {
         return nutrition;
