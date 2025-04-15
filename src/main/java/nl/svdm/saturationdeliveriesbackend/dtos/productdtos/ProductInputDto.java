@@ -33,4 +33,12 @@ public class ProductInputDto {
 
     @Valid
     public NutritionInputDto nutrition;
+
+    @NotNull(message = "you must pick a category")
+    @Digits(integer = 20, fraction = 0, message = "This is not a valid Category")
+    public Long categoryId;
+
+    @NotNull(message = "you must pick a subcategory")
+    @Digits(integer = 20, fraction = 0, message = "This is not a valid Subcategory")
+    public Long subcategoryId;
 }
