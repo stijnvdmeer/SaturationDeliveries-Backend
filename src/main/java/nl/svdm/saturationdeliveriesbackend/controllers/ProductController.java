@@ -54,7 +54,7 @@ public class ProductController {
 
                 return ResponseEntity.created(uri).body(outputDto);
         } catch (Exception e) {
-            return ResponseEntity.unprocessableEntity().body(e);
+            return ResponseEntity.unprocessableEntity().body(e.getMessage());
         }
     }
 
