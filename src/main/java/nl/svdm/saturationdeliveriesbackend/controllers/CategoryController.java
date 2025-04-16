@@ -40,4 +40,9 @@ public class CategoryController {
     public ResponseEntity<List<CategoryOutputDto>> getAllCategories() {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CategoryOutputDto> getCategoryById(@PathVariable Long id) {
+        return ResponseEntity.ok(categoryService.getCategoryById(id));
+    }
 }

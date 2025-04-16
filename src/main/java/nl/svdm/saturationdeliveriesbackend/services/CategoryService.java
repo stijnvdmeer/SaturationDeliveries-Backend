@@ -34,4 +34,11 @@ public class CategoryService {
 
         return genericMapper.listToDto(categories, CategoryOutputDto.class);
     }
+
+    public CategoryOutputDto getCategoryById(Long id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(); // TODO ResourceNotFoundException
+
+        return genericMapper.singleToDto(category, CategoryOutputDto.class);
+     }
 }
