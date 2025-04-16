@@ -3,6 +3,7 @@ package nl.svdm.saturationdeliveriesbackend.controllers;
 import jakarta.validation.Valid;
 import nl.svdm.saturationdeliveriesbackend.dtos.categorydtos.CategoryInputDto;
 import nl.svdm.saturationdeliveriesbackend.dtos.categorydtos.CategoryOutputDto;
+import nl.svdm.saturationdeliveriesbackend.dtos.requestdtos.StringInputDto;
 import nl.svdm.saturationdeliveriesbackend.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,4 +46,21 @@ public class CategoryController {
     public ResponseEntity<CategoryOutputDto> getCategoryById(@PathVariable Long id) {
         return ResponseEntity.ok(categoryService.getCategoryById(id));
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<CategoryOutputDto>> searchCategory(@RequestBody StringInputDto inputDto) {
+        return ResponseEntity.ok(categoryService.searchCategoryByName(inputDto.name));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CategoryOutputDto> updateCategory(@PathVariable Long id, @Valid @RequestBody CategoryInputDto dto) {
+        return ResponseEntity.ok(categoryService.updateCategory(dto, id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+        categoryService.deleteCategory(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
