@@ -6,13 +6,11 @@ import nl.svdm.saturationdeliveriesbackend.dtos.categorydtos.CategoryOutputDto;
 import nl.svdm.saturationdeliveriesbackend.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/category")
@@ -36,5 +34,10 @@ public class CategoryController {
         } catch (Exception e) {
             return ResponseEntity.unprocessableEntity().body(e.getMessage());
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CategoryOutputDto>> getAllCategories() {
+        return ResponseEntity.ok(categoryService.getAllCategories());
     }
 }

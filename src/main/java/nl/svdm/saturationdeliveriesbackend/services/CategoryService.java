@@ -8,6 +8,8 @@ import nl.svdm.saturationdeliveriesbackend.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryService {
     private final CategoryRepository categoryRepository;
@@ -25,5 +27,11 @@ public class CategoryService {
         categoryRepository.save(category);
 
         return genericMapper.singleToDto(category, CategoryOutputDto.class);
+    }
+
+    public List<CategoryOutputDto> getAllCategories() {
+        List<Category> categories = categoryRepository.findAll();
+
+        return genericMapper.listToDto(categories, CategoryOutputDto.class);
     }
 }
